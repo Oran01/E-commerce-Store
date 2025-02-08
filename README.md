@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js E-commerce Store
 
-## Getting Started
+This is a **Next.js-based E-commerce Store** that supports product listing, payments using **Stripe**, and email notifications using **Resend**. The project includes an **admin panel** for managing products, customers, orders, and discount codes.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Frontend:** Next.js, Tailwind CSS, React
+- **Backend:** Next.js Server Actions, Prisma ORM
+- **Database:** PostgreSQL (via Prisma ORM)
+- **Authentication:** Basic Auth for Admin Panel
+- **Payments:** Stripe Payment Integration
+- **Email Notifications:** Resend API for sending emails
+- **Deployment:** Vercel (recommended)
+
+---
+
+## 🎯 Features
+
+### 🛒 E-commerce Functionality
+
+- Browse and purchase products
+- Stripe payment integration
+- Order history with downloadable links
+
+### 📦 Product Management
+
+- Admin panel to manage products
+- Upload images and digital products
+- Set availability and pricing
+
+### 🎟️ Discount System
+
+- Create and manage discount codes
+- Supports percentage and fixed discounts
+
+### 📈 Analytics Dashboard
+
+- Sales trends visualization
+- Top-selling products
+- Revenue breakdown by product
+
+### 📩 Email Notifications
+
+- Order confirmation emails
+- Order history retrieval via email
+
+---
+
+## 🔧 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/nextjs-ecommerce.git
+cd nextjs-ecommerce
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3️⃣ Setup Environment Variables
+
+Create a **.env** file in the root directory and add:
+
+```bash
+DATABASE_URL="postgresql://username:password@localhost:5432/next-js-ecommerce-store-code"
+ADMIN_USERNAME=admin
+HASHED_ADMIN_PASSWORD=yourhashedpassword
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+RESEND_API_KEY=your_resend_api_key
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_stripe_public_key
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+```
+
+### 4️⃣ Setup Database
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+### 5️⃣ Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💳 Stripe Payment Integration
 
-## Learn More
+This project integrates **Stripe** for handling payments.
 
-To learn more about Next.js, take a look at the following resources:
+- **Payments:** Users can checkout and pay via Stripe.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Webhook Handling:** The app listens to Stripe webhooks to process orders.
+- **Success Page:** After payment, users get a download link.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To learn more, visit: [Stripe Docs](https://docs.stripe.com/payments/quickstart?client=next).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📧 Email Notifications with Resend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The **Resend API** is used to send email confirmations and order receipts.
+
+- **Order Confirmation:** Sent after successful payment.
+
+- **Order History Retrieval:** Users can request past orders via email.
+
+To learn more, visit: [Resend Documentation](https://resend.com/emails).
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
+1. **Login to Vercel:**
+
+   ```bash
+   vercel login
+   ```
+
+2. **Deploy:**
+
+   ```bash
+   vercel
+   ```
+
+For more details, check [Next.js Deployment Docs](https://nextjs.org/docs/deployment).
+
+---
+
+## 📚 References & Credits
+
+- [Next.js Official Docs](https://nextjs.org/docs)
+- [Prisma Docs](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
+- [Stripe Docs](https://docs.stripe.com/payments/quickstart?client=next)
+- [Resend Docs](https://resend.com/emails)
+- [Web Dev Simplified - Next.js Course](https://www.youtube.com/watch?v=iqrgggs0Qk0&t=6414s)
